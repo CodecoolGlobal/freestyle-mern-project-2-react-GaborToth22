@@ -1,0 +1,275 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* ------------------------  -Login page- -----------------------------------------*/
+
+
+.loginHeader{
+  position:relative;
+  top: 100%;
+  padding: 6%;
+}
+
+.loginContainer{
+  position:relative;
+  top: 100%;
+}
+
+#loginOr{
+  position:relative;
+  top: 150%;
+  padding:2%;
+  font-size: 20px;
+}
+
+.loginContent{
+  padding:2%;
+}
+
+.signContent{
+  padding-top:2%;
+  
+}
+
+.signContainer{
+  position:relative;
+  top: 100%;
+  padding-top: 8%;
+}
+
+
+#signHere{
+  display: inline;
+  text-decoration: underline;
+}
+
+#backLogin{
+  padding: 10px;
+}
+
+/*----------------------------------------------------------------------------*/
+
+
+/*--------------------------- -NewPlanPage- ----------------------------------*/
+#exercises{
+  position: fixed;
+  top: 5%;
+  z-index: 100;
+  background-color: white;
+  padding:10px
+}
+#exercisesSearch{
+  position: fixed;
+  top: 10%;
+  z-index: 100;
+}
+#exercisesRes{
+  position: absolute;
+  top: 15%;
+}
+
+.allEx{
+  border-bottom: red 1px solid;
+  cursor: pointer;
+}
+
+.allEx:hover{
+  transition: 0.5s;
+  border-bottom: rgb(230, 107, 13) 2px solid;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.exText{
+  height: 90px;
+}
+
+.exImg{
+  border-top: red 3px solid;
+  border-bottom: rgba(230, 107, 13, 0.5) 1px dotted;
+}
+
+.exTextTarget{
+  padding: 10px;
+  
+}
+#newPlan form{
+  position: relative;
+  
+}
+
+#formScroll{
+  overflow-y: scroll;
+  max-height: 70vh;
+}
+
+#exFormButton{
+  position: absolute;
+  width: 100%;
+  top: 70vh;
+  height: 70px;
+  border-radius: 0 0 18px 18px;
+  background-color: white;
+}
+/*----------------------------------------------------------------------------*/
+
+
+/*----------------------------- -Navbar- -------------------------------------*/
+/*#allNavCont{
+  position: fixed;
+  top:5px;
+}*/
+
+#nawRow{
+  height: 50px;
+  background-color: white;
+  padding-bottom: 5px;
+  /*color: aliceblue;*/
+}
+
+
+.navItem{
+  border-bottom: red 3px solid;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.navItem:hover{
+  transition: 0.5s;
+  border-bottom: rgb(230, 107, 13) 3px solid;
+  font-size: 30px;
+  cursor: pointer;
+}
+
+
+/*----------------------------------------------------------------------*/
+
+
+#newPlan{
+  position: fixed;
+  border: solid black 2px;
+  border-radius: 18px;
+  width: 45%;
+  height: 80vh;
+}
+
+.input{
+  width: 80px;
+}
+
+.newPlan-exercise {
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.exercise-name {
+  flex-grow: 1;
+  text-align: center;
+}
+
+.remove-button {
+  background-color: #ff0000;
+  color: #ffffff;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+
+#homeImg{
+  position: absolute;
+  bottom: 0vh;
+  left: 0vh;
+}
+
+#quote{
+  position: absolute;
+  top:30vh;
+  left: 70vh;
+  font-size: 30px;
+  font-family: "Nunito", sans-serif;
+  font-style: italic;
+}
+
+/*------------------------------------------ search ---------------------------------*/
+
+#searchInput{
+  border: solid 1px  #ff0000;
+  border-radius: 4px;
+  text-align: center;
+  
+}
+
+#searchButton{
+  background-color: #ff0000;
+  color: #ffffff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+/* -------------------------------------- myPlans ------------------------------------ */
+
+#myPlansCardsC{
+  position: fixed;
+  top: 5%;
+  z-index: 100;
+  height: auto;
+ 
+}
+
+.myExserciseCard{
+  display: inline-block;
+  width: 250px;
+  height: 500px;
+  border-top:#ff0000 solid 1px;
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  margin: 100px;
+ 
+}
+
+#myExCardContainer{
+  display: flex;
+  padding-top:100px;
+  overflow-x: scroll;
+}
