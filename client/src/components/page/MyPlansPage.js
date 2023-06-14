@@ -32,7 +32,7 @@ const MyPlansPage = ({ users }) => {
     return (
         <div className="container-fluid" id="myPlansCardsC">
             <div className="row">
-                <div className="col-1">1</div>
+                <div className="col-1"></div>
                 <div className="col-10" >
                     <div id="myExCardContainer">
                         {
@@ -43,7 +43,7 @@ const MyPlansPage = ({ users }) => {
                                         <div>
                                             {
                                                 exserciseTemplate.exsercise.map((exsercise, i) => {
-                                                    return <><div>{exsercise.name}</div> <div>{exsercise.values[0]} X {exsercise.values[1]}</div></>
+                                                    return <><div> <span>{exsercise.values[0]} X {exsercise.values[1]}</span> {exsercise.name}</div> </>
                                                 })
                                             }
                                         </div>
@@ -52,7 +52,7 @@ const MyPlansPage = ({ users }) => {
                         }
                     </div>
                 </div>
-                <div className="col-1">3</div>
+                <div className="col-1"></div>
             </div>
         </div>
     )
