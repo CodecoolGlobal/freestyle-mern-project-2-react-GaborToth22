@@ -123,6 +123,7 @@ const NewPlanPage = ({ users }) => {
       setTimeout(() => {
         setSelectedExercises(null)
         setLoading(false)
+        setSubmitted(false)
       }, 2000)
     }
     
@@ -209,7 +210,7 @@ const NewPlanPage = ({ users }) => {
                 : <></>
                 }
               </div>
-              <div id="exFormButton"><button type="submit">SEND</button></div>
+              <div id="exFormButton"><button id="SendButton" type="submit">SEND</button></div>
             </form></>
             }
             

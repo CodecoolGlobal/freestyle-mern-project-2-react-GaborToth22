@@ -142,7 +142,7 @@
 #exFormButton{
   position: absolute;
   width: 100%;
-  top: 70vh;
+  top: 68vh;
   height: 70px;
   border-radius: 0 0 18px 18px;
   background-color: white;
@@ -151,10 +151,11 @@
 
 
 /*----------------------------- -Navbar- -------------------------------------*/
-/*#allNavCont{
-  position: fixed;
-  top:5px;
-}*/
+#logoutIcon{
+  height: 40px;
+  width: 40px;
+
+}
 
 #nawRow{
   height: 50px;
@@ -229,6 +230,20 @@
   font-size: 30px;
   font-family: "Nunito", sans-serif;
   font-style: italic;
+}
+
+#SendButton{
+  background-color: #ff0000;
+  color: #ffffff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;  
+}
+
+#SendButton:hover{
+  transition: 0.5s;
+  background-color: rgb(214, 99, 12);
+  font-size: large;
 }
 
 /*------------------------------------------ search ---------------------------------*/
@@ -403,4 +418,36 @@
     -webkit-transform: rotate(360deg);
     transform: rotate(360deg);
   }
+}
+
+/*-----------------------------------about us -------------------------------*/
+
+#brad{
+  position: relative;
+  top: 20vh;
+  right: 45vh
+}
+
+#ed{
+  position: relative;
+  bottom: 42vh;
+  left: 40vh
+}
+
+#bradImg{  
+  height: 500px;
+  width: 350px;  
+}
+
+#edImg{  
+  height: 500px;
+  width: 450px;  
+}
+
+#bradDiv{
+    font-size: large;
+}
+
+#edDiv{
+    font-size: large;
 }

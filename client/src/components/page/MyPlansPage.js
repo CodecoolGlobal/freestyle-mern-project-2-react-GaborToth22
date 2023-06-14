@@ -14,7 +14,7 @@ const MyPlansPage = ({ users }) => {
                 setUserData(res)
                 console.log(res)
             })
-        }, 4000)
+        }, 2000)
 
     }, [])
 
@@ -52,7 +52,7 @@ const MyPlansPage = ({ users }) => {
                                                         return <div className="container-fluid">
                                                             <div className="row">
                                                                 <div className="col-3">
-                                                                    <span>{exsercise.values[0]} X {exsercise.values[1]}</span>
+                                                                    <span className="innerExCard">{exsercise.values[0]} X {exsercise.values[1]}</span>
                                                                 </div>
                                                                 <div className="col-9 innerExCard">
                                                                     {exsercise.name}
