@@ -9,10 +9,13 @@ const MyPlansPage = ({ users }) => {
     const [userdata, setUserData] = useState(null)
 
     useEffect(() => {
-        getuserData(users).then((res) => {
-            setUserData(res)
-            console.log(res)
-        })
+        setTimeout(() => {
+            getuserData(users).then((res) => {
+                setUserData(res)
+                console.log(res)
+            })
+        }, 4000)
+
     }, [])
 
     useEffect(() => {
@@ -34,32 +37,36 @@ const MyPlansPage = ({ users }) => {
             <div className="row">
                 <div className="col-1"></div>
                 <div className="col-10" >
-                    <div id="myExCardContainer">
-                        {
-                            userdata === null ? <></> :
-                                userdata[0].exsercises.map(exserciseTemplate => {
-                                    return <div className="myExserciseCard">
-                                        <div className="myExCTitle"><h2>{exserciseTemplate.title}</h2></div>
-                                        <div className="innerMyExC">
-                                            {
-                                                exserciseTemplate.exsercise.map((exsercise, i) => {
-                                                    return <div className="container-fluid">
-                                                        <div className="row">
-                                                        <div className="col-3">
-                                                            <span>{exsercise.values[0]} X {exsercise.values[1]}</span>
+                    {
+                        userdata === null ? <div className="Loading" /> : userdata[0].exsercises.length === 0 ? <div id="emptyExList">Create your plan!</div> :
+
+                            <div id="myExCardContainer">
+                                {
+
+                                    userdata[0].exsercises.map(exserciseTemplate => {
+                                        return <div className="myExserciseCard">
+                                            <div className="myExCTitle"><h2>{exserciseTemplate.title}</h2></div>
+                                            <div className="innerMyExC">
+                                                {
+                                                    exserciseTemplate.exsercise.map((exsercise, i) => {
+                                                        return <div className="container-fluid">
+                                                            <div className="row">
+                                                                <div className="col-3">
+                                                                    <span>{exsercise.values[0]} X {exsercise.values[1]}</span>
+                                                                </div>
+                                                                <div className="col-9 innerExCard">
+                                                                    {exsercise.name}
+                                                                </div>
+                                                            </div>
                                                         </div>
-                                                        <div className="col-9 innerExCard"> 
-                                                            {exsercise.name}
-                                                        </div>
-                                                        </div>
-                                                    </div>
-                                                })
-                                            }
+                                                    })
+                                                }
+                                            </div>
                                         </div>
-                                    </div>
-                                })
-                        }
-                    </div>
+                                    })
+                                }
+                            </div>
+                    }
                 </div>
                 <div className="col-1"></div>
             </div>

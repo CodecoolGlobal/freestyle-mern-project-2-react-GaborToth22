@@ -38,6 +38,8 @@ const NewPlanPage = ({ users }) => {
   const [search, setSearch] = useState("")
   const [selectedExercises, setSelectedExercises] = useState([])
   const [userData, setUserData] = useState({})
+  const [submitted, setSubmitted] = useState(false)
+  const [loading, setLoading] = useState(false)
 
   useEffect(() => {
     fetch("https://exercisedb.p.rapidapi.com/exercises/bodyPartList", {
@@ -102,9 +104,29 @@ const NewPlanPage = ({ users }) => {
       })
       .catch(err => console.log(err))
   }
-  const handleExerciseClick = (name) => { setSelectedExercises((selectedExercises) => [...selectedExercises, name]); }
+  const handleExerciseClick = (name) => { 
+    if(selectedExercises === null){
+      console.log('asd')
+      setSelectedExercises([name]);
+    }else{
+      console.log('vava')
+      setSelectedExercises((selectedExercises) => [...selectedExercises, name]);
+    }
+     }
   const handleRemove = (name) => { setSelectedExercises(selectedExercises.filter((exercise) => exercise !== name)); };
+     useEffect(()=>{
+      console.log(selectedExercises)
+     })
 
+  useEffect(() => {
+    if(loading){
+      setTimeout(() => {
+        setSelectedExercises(null)
+        setLoading(false)
+      }, 2000)
+    }
+    
+  }, [submitted])
   //Form function
 
   const sendForm = (e) => {
@@ -125,37 +147,33 @@ const NewPlanPage = ({ users }) => {
     })
     console.log(e.target.title.value)
     let titleValue = ""
-    if(e.target.title.value === ""){
+    if (e.target.title.value === "") {
       titleValue = "default"
-    }else{
+    } else {
       titleValue = e.target.title.value
     }
-    let res = 
-      {
-        title: titleValue,
-        exsercise: []
-      }
-    
-
-
+    let res =
+    {
+      title: titleValue,
+      exsercise: []
+    }
 
     selectedExercises.forEach((value, i) => {
       res.exsercise.push({
         name: value,
-        values: db[i] 
+        values: db[i]
+      })
     })
-    })
-
-    console.log(res)
-    console.log(userData)
     const updateUser = userData
     updateUser[0].exsercises = [...updateUser[0].exsercises, res]
     console.log(updateUser)
     patchExsercises(users, updateUser).then(
-       (res) =>{
-         console.log(res)
-       } 
-     )
+      (res) => {
+        console.log(res)
+      }
+    )
+    setLoading(true)
+    setSubmitted(true)
   }
 
   return (
@@ -179,10 +197,24 @@ const NewPlanPage = ({ users }) => {
       <div className="container-fluid" id="exercisesRes">
         <div className="row">
           <div className="col-6"><div id="newPlan">NEW WORKOUT
-            <form onSubmit={(e) => sendForm(e)}><div id="formScroll">
-              <input name="title" placeholder="add workout name"></input>
-              {selectedExercises.map((exercise, i) => (<div key={i} className="newPlan-exercise"><input type="number" className="input" min="1" defaultValue={1}></input>X<input type="number" className="input" min="1" defaultValue={1}></input><span className="exercise-name">{exercise}</span><button onClick={() => handleRemove(exercise)} className="remove-button">Remove</button></div>))}
-            </div><div id="exFormButton"><button type="submit">SEND</button></div></form></div></div>
+            {
+              loading ? <div className="Loading" /> : <><form onSubmit={(e) => sendForm(e)}>
+              <div id="formScroll">
+                <input name="title" placeholder="add workout name"></input>
+                {selectedExercises === null ? <div>Your plan saved!</div> :
+                 selectedExercises.length !== 0 ? 
+                 selectedExercises.map((exercise, i) => (<div key={i} className="newPlan-exercise">
+                  <input type="number" className="input" min="1" defaultValue={1}></input>X<input type="number" className="input" min="1" defaultValue={1}></input><span className="exercise-name">{exercise}</span>
+                  <button onClick={() => handleRemove(exercise)} className="remove-button">Remove</button></div>))
+                : <></>
+                }
+              </div>
+              <div id="exFormButton"><button type="submit">SEND</button></div>
+            </form></>
+            }
+            
+          </div>
+          </div>
           <div className="col-3">{exercises.map((exercise, i) => { if (i % 2 === 0) { return <div key={i}><img className="exImg" src={exercise.gifUrl} alt="pic" onClick={() => handleExerciseClick(exercise.name)} /><div className="exTextTarget">{exercise.target}</div><div className="exText"><h4>{exercise.name}</h4></div></div> } })}</div>
           <div className="col-3">{exercises.map((exercise, i) => { if (i % 2 !== 0) { return <div key={i}><img className="exImg" src={exercise.gifUrl} alt="pic" onClick={() => handleExerciseClick(exercise.name)} /><div className="exTextTarget">{exercise.target}</div><div className="exText"><h4>{exercise.name}</h4></div></div> } })}</div>
         </div>
