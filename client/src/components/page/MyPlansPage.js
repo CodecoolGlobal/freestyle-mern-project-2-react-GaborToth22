@@ -39,11 +39,20 @@ const MyPlansPage = ({ users }) => {
                             userdata === null ? <></> :
                                 userdata[0].exsercises.map(exserciseTemplate => {
                                     return <div className="myExserciseCard">
-                                        <div>{exserciseTemplate.title}</div>
-                                        <div>
+                                        <div className="myExCTitle"><h2>{exserciseTemplate.title}</h2></div>
+                                        <div className="innerMyExC">
                                             {
                                                 exserciseTemplate.exsercise.map((exsercise, i) => {
-                                                    return <><div> <span>{exsercise.values[0]} X {exsercise.values[1]}</span> {exsercise.name}</div> </>
+                                                    return <div className="container-fluid">
+                                                        <div className="row">
+                                                        <div className="col-3">
+                                                            <span>{exsercise.values[0]} X {exsercise.values[1]}</span>
+                                                        </div>
+                                                        <div className="col-9 innerExCard"> 
+                                                            {exsercise.name}
+                                                        </div>
+                                                        </div>
+                                                    </div>
                                                 })
                                             }
                                         </div>

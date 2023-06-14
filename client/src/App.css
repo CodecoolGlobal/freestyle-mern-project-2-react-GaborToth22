@@ -262,14 +262,35 @@
   display: inline-block;
   width: 250px;
   height: 500px;
-  border-top:#ff0000 solid 1px;
+  border-top:#ff0000 solid 2px;
   box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
   margin: 50px;
   min-width: 350px;
+  border-bottom:rgb(230, 107, 13) 2px dotted;
+  border-radius: 18px;
 }
 
 #myExCardContainer{
   display: flex;
   padding-top:100px;
   overflow-x: scroll;
+}
+
+
+.innerExCard{
+  display: flex;
+  justify-content: left;
+  padding:5px;
+  font-size: large;
+}
+
+.innerMyExC{
+  
+  border-top:rgb(230, 107, 13) 2px dotted;
+  
+  border-radius: 18px;
+}
+
+.myExCTitle{
+  padding-bottom: 20px;
 }
